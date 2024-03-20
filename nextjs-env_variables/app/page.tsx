@@ -6,7 +6,6 @@ const page = () => {
   
   console.log("\nNODE_ENV:", NODE_ENV)
   console.log("\nDATABASE_URI:", DATABASE_URI)
-
   console.log("\nDEV_DB_NAME:", DEV_DB_NAME)
   console.log("\nPROD_DB_NAME:", process.env.PROD_DB_NAME)
   console.log("\nADMIN_DB_NAME:", process.env.ADMIN_DB_NAME)
