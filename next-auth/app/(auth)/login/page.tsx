@@ -1,6 +1,8 @@
+import Login from "@/components/Login"
+
 const page = () => {
   return (
-    <div>register page!</div>
+    <Login />
   )
 }
 

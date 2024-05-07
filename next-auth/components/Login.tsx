@@ -8,8 +8,12 @@ import { Button } from "@/components/ui/button";
 const page = () => {
   const router = useRouter();
 
-  const handleClick = () => {
-    router.push('/auth/register')
+  const handleRegisterClick = () => {
+    router.push('/register')
+  }
+
+  const handleOauthClick = (authProvider: string) => {
+    console.log(authProvider)
   }
 
   return (
@@ -21,17 +25,20 @@ const page = () => {
         <div>login form</div>
 
         <div className="flex items-center gap-3">
-          <Button size={'lg'} variant={'outline'} className="w-full drop-shadow-md">
+          <Button onClick={() => handleOauthClick('google')} size={'lg'} variant={'outline'} className="w-full drop-shadow-md">
             <FcGoogle size={25}/>
           </Button>
 
-          <Button size={'lg'} variant={'outline'} className="w-full drop-shadow-md">
+          <Button onClick={() => handleOauthClick('github')} size={'lg'} variant={'outline'} className="w-full drop-shadow-md">
             <FaGithub size={25}/>
           </Button>
 
         </div>
 
-        <p className="hover:underline underline-offset-4 cursor-pointer" onClick={handleClick}>Don't have an account?</p>
+        <p className="hover:underline underline-offset-4 cursor-pointer" 
+          onClick={handleRegisterClick}>Don't have an account?
+        </p>
+
       </div>
 
     </div>

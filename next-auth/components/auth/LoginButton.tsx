@@ -12,7 +12,7 @@ const LoginButton:React.FC<LoginButtonProps> = ({children, mode = 'redirect', as
   const router = useRouter();
   
   const handleClick = () => {
-    router.push('/auth/login')
+    router.push('/login')
   }
   
   if (mode === 'modal') {
