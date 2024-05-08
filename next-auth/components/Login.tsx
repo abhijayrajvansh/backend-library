@@ -5,13 +5,10 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator"
+import Link from "next/link";
 
 const page = () => {
   const router = useRouter();
-
-  const handleRegisterClick = () => {
-    router.push('/register')
-  }
 
   const handleOauthClick = (authProvider: string) => {
     console.log('clicked on:', authProvider)
@@ -43,8 +40,9 @@ const page = () => {
 
         </div>
 
-        <p className="hover:underline underline-offset-4 cursor-pointer" 
-          onClick={handleRegisterClick}>Don't have an account?
+        <p>
+          Don't have an account, please {" "}
+          <Link className="text-blue-500 hover:underline underline-offset-4 cursor-pointer" href={'/register'}>register.</Link>
         </p>
 
       </div>

@@ -7,7 +7,7 @@ const Home = () => {
     <div className="space-y-3 text-white text-center">
 
       <h1 className="text-6xl font-semibold drop-shadow-lg">Next Auth 🔐</h1>
-      <p className="text-lg drop-shadow-lg">Security Implementation of Authentication Service</p>
+      <p className="text-lg drop-shadow-lg">Implementation of Authentication and Third Party Login</p>
 
       <div>
         <LoginButton>
