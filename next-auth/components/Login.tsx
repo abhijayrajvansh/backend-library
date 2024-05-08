@@ -6,6 +6,7 @@ import { FaGithub } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link";
+import AuthForm from "./AuthForm";
 
 const page = () => {
   const router = useRouter();
@@ -17,11 +18,12 @@ const page = () => {
   return (
     <div className="flex h-full flex-col justify-center items-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-800">
 
-      <div className="space-y-5 bg-white p-10 rounded-lg text-center drop-shadow-lg">
-        <h1 className="text-6xl font-semibold drop-shadow-lg">Sign In Auth 🔐</h1>
-        <p className="text-gray-500">Welcome back!</p>
-        
-        <div>login form</div>
+      <div className="space-y-5 bg-white p-10 rounded-lg  drop-shadow-lg">
+        <h1 className="text-6xl font-semibold drop-shadow-lg">Login</h1>
+
+
+        <AuthForm />
+
 
         <div className="flex items-center gap-3">
           <Separator className="w-[190px]"/>
