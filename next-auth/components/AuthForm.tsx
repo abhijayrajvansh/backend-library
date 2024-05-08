@@ -61,7 +61,7 @@ export default function InputForm() {
           )}
         />
         
-        <Button className="w-full" type="submit" >Sign in</Button>
+        <Button className="w-full" type="submit" >Login</Button>
       </form>
     </Form>
   );
