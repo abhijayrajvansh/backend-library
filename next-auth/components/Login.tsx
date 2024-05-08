@@ -6,7 +6,7 @@ import { FaGithub } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link";
-import AuthForm from "./AuthForm";
+import LoginForm from "@/components/LoginForm";
 
 const page = () => {
   const router = useRouter();
@@ -22,7 +22,7 @@ const page = () => {
         <h1 className="text-6xl font-semibold drop-shadow-lg">Login</h1>
 
 
-        <AuthForm />
+        <LoginForm />
 
 
         <div className="flex items-center gap-3">

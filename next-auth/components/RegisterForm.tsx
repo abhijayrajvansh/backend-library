@@ -14,12 +14,18 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-const FormSchema = z.object({
-  email: z.string().min(1, "email is required.").email("invalid email."),
-  password: z.string().min(1, "password is required.").min(8, "password must be 8 characters atleast.")
+const FormSchema = z
+  .object({
+    email: z.string().min(1, "email is required.").email("invalid email."),
+    password: z.string().min(1, "password is required.").min(8, "password must be 8 characters atleast."),
+    confirmPassword: z.string().min(1, "password confirmation is required."),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    path: ['confirmPassword'],
+    message: 'password do not match.',
 });
 
-export default function InputForm() {
+export default function InputForm () {
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -60,8 +66,21 @@ export default function InputForm() {
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="confirmPassword"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Confirm password</FormLabel>
+              <FormControl>
+                <Input type="password" placeholder="********" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
         
-        <Button className="w-full" type="submit" >Login</Button>
+        <Button className="w-full" type="submit">register</Button>
       </form>
     </Form>
   );
