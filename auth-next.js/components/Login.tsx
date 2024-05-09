@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator"
 import Link from "next/link";
 import LoginForm from "@/components/LoginForm";
+import Watermark from "./Watermark";
 
 const page = () => {
 
@@ -16,7 +17,7 @@ const page = () => {
   return (
     <div className="flex h-full flex-col justify-center items-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-sky-400 to-blue-800">
 
-      <div className="space-y-5 bg-white p-10 rounded-lg  drop-shadow-lg">
+      <div className="space-y-5 bg-white p-10 rounded-lg  drop-shadow-lg mb-3">
         <h1 className="text-6xl font-semibold drop-shadow-lg">Login</h1>
 
 
@@ -46,6 +47,8 @@ const page = () => {
         </p>
 
       </div>
+
+      <Watermark />
 
     </div>
   )
