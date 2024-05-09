@@ -2,7 +2,7 @@ import Register from "@/components/Register";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Next-Auth | Register'
+  title: 'Rajvansh.js | Register'
 }
 
 const page = () => {

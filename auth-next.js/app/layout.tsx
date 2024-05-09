@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Next-Auth | Home",
+  title: "Rajvansh.js | Home",
   description: "Developed by Abhijay Rajvansh",
 };
 

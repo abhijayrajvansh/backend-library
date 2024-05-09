@@ -2,7 +2,7 @@ import Login from "@/components/Login"
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Next-Auth | Login'
+  title: 'Rajvansh.js | Login'
 }
 
 const page = () => {

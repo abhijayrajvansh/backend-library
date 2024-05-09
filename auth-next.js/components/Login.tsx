@@ -43,7 +43,7 @@ const page = () => {
 
         <p className="text-center">
           Don't have an account, please {" "}
-          <Link className="text-blue-500 hover:underline underline-offset-4 cursor-pointer" href={'/register'}>register.</Link>
+          <Link className="text-blue-500 hover:underline underline-offset-4 cursor-pointer" href={'/register'}>Register.</Link>
         </p>
 
       </div>
