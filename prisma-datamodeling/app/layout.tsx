@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Prisma Data Modeling",
-  description: "author: abhijayrajvansh",
+  description: "author: Abhijay Rajvansh",
 };
 
 export default function RootLayout({
