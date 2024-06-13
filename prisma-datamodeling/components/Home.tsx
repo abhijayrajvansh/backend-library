@@ -14,6 +14,8 @@ const Home = () => {
           Abhijay Rajvansh.
         </Link>
       </p>
+
+      <Link className="mt-3 text-blue-400 underline underline-offset-8" href={'/dashboard'}>go to dashboard {'->'}</Link>
     </div>
   )
 }
