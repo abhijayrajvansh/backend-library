@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 8000;
+// root first route
 app.get('/', (req, res) => {
     res.send({
         msg: "hello world"

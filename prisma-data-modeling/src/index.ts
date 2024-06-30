@@ -3,6 +3,7 @@ import express from "express";
 const app = express();
 const PORT = process.env.PORT || 8000;
 
+// root first route
 app.get('/', (req, res) => {
   res.send({
     msg: "hello world"
