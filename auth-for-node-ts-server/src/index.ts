@@ -1,16 +1,17 @@
-import express from 'express';
+import { PORT } from "./configs";
+import express from "express";
+import authRoutes from "./routes/authRoutes";
 
 const app = express();
-const PORT = process.env.PORT || 8000;
 
-app.get('/', (req, res) => {
-  res.json({
-    msg: "hello world"
-  })
-})
+app.use(express.json())
 
-// app.get('/api', authRoutes);
+app.use('/auth', authRoutes)
 
-app.listen(PORT, () => {
-  console.log(`> server is running at http://localhost:${PORT}`)
-})
+try {
+  app.listen(PORT, () => {
+    console.log(`> server is running at http://localhost:${PORT}/`);
+  });
+} catch (error) {
+  console.log("error: ", error.message);
+}
