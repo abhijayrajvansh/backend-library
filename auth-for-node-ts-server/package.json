@@ -1,0 +1,28 @@
+{
+  "name": "auth-for-node-ts-server",
+  "version": "1.0.0",
+  "description": "auth implementation for node-express server with prisma",
+  "main": "index.ts",
+  "scripts": {
+    "start": "node dist/index",
+    "build": "tsc -p .",
+    "dev": "tsc-watch --onSuccess \"npm run start\""
+  },
+  "keywords": [],
+  "author": "https://abhijayrajvansh.com",
+  "license": "ISC",
+  "devDependencies": {
+    "prisma": "^5.16.1",
+    "tsc-watch": "^6.2.0",
+    "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "@prisma/client": "5.16.1",
+    "@types/express": "^4.17.21",
+    "express": "^4.19.2",
+    "ts-node": "^10.9.2"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+  }
+}
