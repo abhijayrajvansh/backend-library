@@ -413,7 +413,7 @@ packages:
 snapshots:
 
   '@prisma/client@5.16.1(prisma@5.16.1)':
-    optionalDependencies:
+    dependencies:
       prisma: 5.16.1
 
   '@prisma/debug@5.16.1': {}
