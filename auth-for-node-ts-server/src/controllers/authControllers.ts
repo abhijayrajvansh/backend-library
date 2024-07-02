@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import prisma from '../db/prisma';
 
 export const test = (req: Request, res: Response) => {
   try {
@@ -12,7 +13,7 @@ export const test = (req: Request, res: Response) => {
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
-    const allUsers = await 'console.log: prisma db query to get all users'
+    const allUsers = await prisma.users.findMany()
     console.log(allUsers)
   } catch (error) {
     console.log(error.message)
