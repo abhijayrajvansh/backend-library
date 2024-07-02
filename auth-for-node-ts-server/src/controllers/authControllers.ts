@@ -3,7 +3,7 @@ import prisma from '../db/prisma';
 
 export const test = (req: Request, res: Response) => {
   try {
-    res.status(200).json({
+    return res.status(200).json({
       msg: 'test-route', status: 200
     })
   } catch (error) {
@@ -14,7 +14,9 @@ export const test = (req: Request, res: Response) => {
 export const getUsers = async (req: Request, res: Response) => {
   try {
     const allUsers = await prisma.users.findMany()
-    console.log(allUsers)
+    return res.status(200).json({
+      users: allUsers
+    })
   } catch (error) {
     console.log(error.message)
   }
