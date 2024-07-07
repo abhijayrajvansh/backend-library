@@ -72,7 +72,7 @@ export const login = async (req: Request, res: Response) => {
     // check if the entered password id correct or not
     const isValidPassword = await compare(password, isEmail.password);
 
-    console.log(isValidPassword);
+    console.log('is entered password correct:',isValidPassword);
 
     return res.status(201).json({
       msg: "pending",
