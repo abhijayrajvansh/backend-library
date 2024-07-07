@@ -1,12 +1,15 @@
 import { PORT } from "./configs";
 import express from "express";
 import authRoutes from "./routes/authRoutes";
+import apiRoutes from './routes/apiRoutes';
+import { authMiddleware } from "./middlewares/authMiddleware";
 
 const app = express();
 
 app.use(express.json())
 
 app.use('/auth', authRoutes)
+app.use('/api', authMiddleware, apiRoutes)
 
 try {
   app.listen(PORT, () => {

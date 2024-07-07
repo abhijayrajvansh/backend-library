@@ -1,6 +1,8 @@
 import { Request, Response } from "express";
 import prisma from "../db/prisma";
 import { hash, compare } from "bcrypt";
+import { sign } from "jsonwebtoken";
+import { SECRET } from "../configs";
 
 export const getUsers = async (req: Request, res: Response) => {
   try {
@@ -50,25 +52,29 @@ export const login = async (req: Request, res: Response) => {
     const { email, password } = await req.body;
 
     // find if user exists or not
-    const isEmail = await prisma.users.findUnique({
+    const user = await prisma.users.findUnique({
       where: {
         email,
       },
     });
 
-    if (!isEmail) return res.json({ isEmail: "user not found" });
+    if (!user) return res.json({ msg: "user not found" });
 
     // check if the entered password id correct or not
-    const isValidPassword = await compare(password, isEmail.password);
+    const isValidPassword = await compare(password, user.password);
+
     if (!isValidPassword) {
       return res.json({
         msg: "wrong password",
       });
     }
 
-    return res.status(201).json({
-      msg: "correct email and password",
-    });
+    // sign the user payload with secret key
+    const payload = { id: user.id, email: user.email };
+    const token = sign(payload, SECRET);
+
+    return res.status(201).json({ token });
+    
   } catch (error) {
     return res.status(500).json({
       msg: "internal server error",
