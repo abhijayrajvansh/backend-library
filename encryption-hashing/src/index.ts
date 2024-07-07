@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt';
+import {hash, compare} from 'bcrypt';
 
 // Function to hash a password
 const hashPassword = async (password: string): Promise<string> => {
@@ -31,4 +32,24 @@ const runExample = async () => {
   console.log(`Password Match: ${isMatch}`);
 };
 
-runExample();
+// runExample();
+
+const main = async () => {
+  // take the user password
+  const og = 'password@123';
+  console.log('original password:', og)
+
+  // hash the user password
+  const hp = await hash(og, 10);
+  console.log('hashed password:', hp);
+
+  // compare the user password with hashed password
+  const wrongpassword = '123'
+  const validPassoword1 = await compare(wrongpassword, hp)
+  console.log("\nvalidation for wrong passoword:", validPassoword1)
+
+  const validPassoword2 = await compare(og, hp)
+  console.log("validation for correct passoword:", validPassoword2)
+}
+
+main ()
