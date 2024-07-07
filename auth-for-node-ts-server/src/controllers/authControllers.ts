@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import prisma from "../db/prisma";
-import { genSalt, hash, compare } from "bcrypt";
+import { hash, compare } from "bcrypt";
 
 export const test = (req: Request, res: Response) => {
   try {
@@ -34,8 +34,8 @@ export const getUsers = async (req: Request, res: Response) => {
 export const register = async (req: Request, res: Response) => {
   try {
     const { email, password } = await req.body;
-    const salt = await genSalt(10);
-    const saltedPassword = await hash(password, salt);
+    const saltRounds = 10;
+    const saltedPassword = await hash(password, saltRounds);
 
     const newUser = await prisma.users.create({
       data: {
