@@ -75,7 +75,7 @@ export const login = async (req: Request, res: Response) => {
     console.log('is entered password correct:',isValidPassword);
 
     return res.status(201).json({
-      msg: "pending",
+      msg: "success",
     });
   } catch (error) {
     return res.status(500).json({
