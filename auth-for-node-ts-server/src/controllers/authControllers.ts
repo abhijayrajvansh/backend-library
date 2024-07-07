@@ -2,17 +2,6 @@ import { Request, Response } from "express";
 import prisma from "../db/prisma";
 import { hash, compare } from "bcrypt";
 
-export const test = (req: Request, res: Response) => {
-  try {
-    return res.status(200).json({
-      msg: "test-route",
-      status: 200,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-
 export const getUsers = async (req: Request, res: Response) => {
   try {
     const allUsers = await prisma.users.findMany({
@@ -71,11 +60,14 @@ export const login = async (req: Request, res: Response) => {
 
     // check if the entered password id correct or not
     const isValidPassword = await compare(password, isEmail.password);
-
-    console.log('is entered password correct:',isValidPassword);
+    if (!isValidPassword) {
+      return res.json({
+        msg: "wrong password",
+      });
+    }
 
     return res.status(201).json({
-      msg: "success",
+      msg: "correct email and password",
     });
   } catch (error) {
     return res.status(500).json({
@@ -95,14 +87,13 @@ export const deleteUser = async (req: Request, res: Response) => {
       },
     });
 
-    if (!isUser) return res.status(404).json({msg: 'user not found'})
-
+    if (!isUser) return res.status(404).json({ msg: "user not found" });
 
     await prisma.users.delete({
       where: {
-        id
-      }
-    })
+        id,
+      },
+    });
 
     return res.status(201).json({
       msg: "user deleted successfully",
