@@ -1,4 +1,4 @@
-# Backend Recipe Library 📚
+# Backend Architectures 📚
 
 Author: [Abhijay Rajvansh](https://abhijayrajvansh.com)
 
