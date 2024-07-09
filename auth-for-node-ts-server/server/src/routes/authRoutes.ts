@@ -1,5 +1,4 @@
 import {
-  getUsers,
   register,
   login,
   deleteUser,
@@ -10,7 +9,6 @@ import { authSchema } from "../validators/authValidators";
 
 const router = Router();
 
-router.get("/users", getUsers);
 router.post("/register", validate(authSchema), register);
 router.post("/login", validate(authSchema), login);
 router.delete("/delete", deleteUser);

@@ -4,23 +4,6 @@ import { hash, compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { SECRET } from "../configs";
 
-export const getUsers = async (req: Request, res: Response) => {
-  try {
-    const allUsers = await prisma.users.findMany({
-      select: {
-        id: true,
-        email: true,
-        role: true,
-        updatedAt: true,
-      },
-    });
-    return res.status(200).json({
-      users: allUsers,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
 
 export const register = async (req: Request, res: Response) => {
   try {
