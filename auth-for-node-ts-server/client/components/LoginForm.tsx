@@ -14,12 +14,19 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
+import axios from "axios";
+import { useRouter } from "next/navigation";
+
 const FormSchema = z.object({
   email: z.string().min(1, "email is required.").email("invalid email."),
-  password: z.string().min(1, "password is required.").min(8, "password must be 8 characters atleast.")
+  password: z
+    .string()
+    .min(1, "password is required.")
+    .min(6, "password must be 6 characters atleast."),
 });
 
 export default function InputForm() {
+  const router = useRouter();
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -29,15 +36,30 @@ export default function InputForm() {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof FormSchema>) => {
-    console.log(values);
-  }
+  const onSubmit = async (values: z.infer<typeof FormSchema>) => {
+    try {
+      const res = await axios.post(
+        process.env.NEXT_PUBLIC_API_URL + "/auth/login",
+        values
+      );
+
+      if (res.data.msg) {
+        console.log("bad auth");
+        return <>bad auth</>;
+      }
+
+      localStorage.setItem("auth_token", res.data.token);
+
+      router.push("/dashboard");
+    } catch (error) {
+      console.error("There was some error:", error);
+    }
+  };
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
-        
-      <FormField
+        <FormField
           control={form.control}
           name="email"
           render={({ field }) => (
@@ -50,7 +72,7 @@ export default function InputForm() {
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="password"
@@ -64,8 +86,10 @@ export default function InputForm() {
             </FormItem>
           )}
         />
-        
-        <Button className="w-full" type="submit" >Sign in</Button>
+
+        <Button className="w-full" type="submit">
+          Log in
+        </Button>
       </form>
     </Form>
   );

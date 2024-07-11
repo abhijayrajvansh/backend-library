@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import LoginForm from "@/components/LoginForm";
-import Watermark from "./Watermark";
 
 const page = () => {
   const handleOauthClick = (authProvider: string) => {
@@ -19,15 +18,21 @@ const page = () => {
         Login
       </h1>
 
+      {/* credentials options */}
       <LoginForm />
 
+
+      {/* divider */}
       <div className="flex items-center gap-3">
         <Separator className="w-[190px]" />
         <p className="text-black/70">or</p>
         <Separator className="w-[190px]" />
       </div>
 
+
+      {/* oAuth options */}
       <div className="flex items-center gap-3">
+      {/* google sign in */}
         <Button
           onClick={() => handleOauthClick("google")}
           size={"lg"}
@@ -37,6 +42,8 @@ const page = () => {
           <FcGoogle size={25} />
         </Button>
 
+
+      {/* github sign in */}
         <Button
           onClick={() => handleOauthClick("github")}
           size={"lg"}
@@ -47,6 +54,7 @@ const page = () => {
         </Button>
       </div>
 
+      {/* register route */}
       <p className="text-center">
         Don't have an account,{" "}
         <Link
