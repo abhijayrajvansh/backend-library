@@ -1,44 +1,41 @@
+import createApolloGraphqlServer from "./graphql";
 import express from "express";
-import { ApolloServer } from "@apollo/server";
 import { expressMiddleware } from "@apollo/server/express4";
+import { PORT } from "./config";
+import { decodeToken } from "./services/user";
 
 async function startServer() {
-  const PORT = process.env.PORT || 2711;
   const app = express();
 
   app.use(express.json());
 
-  const gqlServer = new ApolloServer({
-    typeDefs:`
-      type Query {
-        hello: String
-        say(name: String): String
-      }
-    `,
-    resolvers: {
-      Query: {
-        hello: () => `hello from graphql!`,
-        say: (_, {name}: {name: String}) => `hello ${name}, how are you?` 
-      },
-    },
-  });
-
-  await gqlServer.start();
-
   // **root**
   app.get("/", (req, res) => {
-    res.json({ 
+    res.json({
       status: "server is up and running",
-      graphql_studio: "/graphql"
+      graphql_studio: "/graphql",
     });
   });
 
-  // **graphql endpoint**
-  app.use("/graphql", expressMiddleware(gqlServer));
+  // graphql endpoint
+  app.use(
+    "/graphql",
+    expressMiddleware(await createApolloGraphqlServer(), {
+      context: async ({ req }) => {
+        const tokenFromHeaders = req.headers.authorization;
+        try {
+          const userIdentity = decodeToken(tokenFromHeaders);
+          return { userIdentity };
+        } catch (error) {
+          return {};
+        }
+      },
+    })
+  );
 
   app.listen(PORT, () => {
     console.log(
-      `> server started on PORT:${PORT}\n> Graphql-Studio is live at http://localhost:${PORT}/graphql.`
+      `> server started on PORT:${PORT}\n> Graphql-Studio is live at http://localhost:${PORT}/graphql`
     );
   });
 }
