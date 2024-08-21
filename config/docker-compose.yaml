@@ -2,9 +2,8 @@ services:
   postgres:
     image: postgres
     restart: always
-    container_name: docker-postgres
     volumes:
-      - ./local_database/postgres:/var/lib/postgresql/data
+      - ./local/postgres:/var/lib/postgresql/data
     ports:
       - 5432:5432
     environment:
