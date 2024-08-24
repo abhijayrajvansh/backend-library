@@ -13,7 +13,7 @@ export const users = pgTable("user", {
   role: authRole('role').notNull().default('USER')
 })
 
-// for oauth users
+// for user with social logins
 export const accounts = pgTable("account", {
     id: text("id").notNull().primaryKey().$defaultFn(() => crypto.randomUUID()),
     userId: text("userId").notNull().references(() => users.id, { onDelete: "cascade" }), // fkey relation with user table
