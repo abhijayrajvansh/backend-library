@@ -1,9 +1,11 @@
 import Dashboard from "@/components/Dashboard";
-import { isAuthenticated } from "@/config";
 import { redirect } from "next/navigation";
 import React from "react";
+import { checkIsAuthenticated } from "@/lib/auth/checkIsAuthenticated";
 
-const page = () => {
+const page = async () => {
+  const isAuthenticated = await checkIsAuthenticated();
+  
   if (!isAuthenticated) {
     redirect("/login");
   } else {

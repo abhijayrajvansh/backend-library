@@ -1,9 +1,11 @@
 import Login from "@/components/Login";
 import React from "react";
 import { redirect } from "next/navigation";
-import { isAuthenticated } from '@/config';
+import { checkIsAuthenticated } from "@/lib/auth/checkIsAuthenticated";
 
-const login = () => {
+const login = async () => {
+  const isAuthenticated = await checkIsAuthenticated();
+
   if (isAuthenticated) {
     redirect ('/dashboard');
   } else {
