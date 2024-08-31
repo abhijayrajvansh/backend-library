@@ -15,7 +15,6 @@ export const users = pgTable("user", {
 
 // for user with social logins
 export const accounts = pgTable("account", {
-    id: text("id").notNull().primaryKey().$defaultFn(() => crypto.randomUUID()),
     userId: text("userId").notNull().references(() => users.id, { onDelete: "cascade" }), // fkey relation with user table
     type: text("type").$type<AdapterAccountType>().notNull(),
     provider: text("provider").notNull(),
