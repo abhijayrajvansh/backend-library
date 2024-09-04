@@ -1,8 +1,8 @@
-# Full-Stack Architectures 📚
+# Full-Stack SDK/IDL 📚
 
 Author: [Abhijay Rajvansh](https://abhijayrajvansh.com)
 
-## Link To Repositories:
+## Link To Repositories
 
 - [graphql server](https://github.com/abhijayrajvansh/graphql-server): implementation of graphql with express.js for node server.
 - [auth server](https://github.com/abhijayrajvansh/google-magiclink-auth): google oauth and magic link sign up auth implementation with user and admin roles.
