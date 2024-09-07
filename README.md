@@ -14,3 +14,4 @@ Author: [Abhijay Rajvansh](https://abhijayrajvansh.com)
 - [auth pages ui](https://github.com/abhijayrajvansh/auth-client-ui): clean react components for register and login page with validations.
 - [traditional auth](https://github.com/abhijayrajvansh/pern-auth-server): traditional way of jwt authentication from scrath using postgres, express, react and node.
 - [flare particles](https://flareparticles.vercel.app): flare effect with flying dust particles landing page.
+- [admin dashboard](https://admin-kanban-event-management.vercel.app): admin dashbaord with kanban and even management ops.
