@@ -10,6 +10,7 @@ Author: [Abhijay Rajvansh](https://abhijayrajvansh.com)
 - [youtube transcript generator](https://github.com/abhijayrajvansh/youtube-transcript-api): convert youtube videos into LLM-ready markdown data.
 - [twitterX-posts-api](https://github.com/abhijayrajvansh/twitter-api): embed X posts (formerly tweets) without using any official api.
 - [prisma orm api](https://github.com/abhijayrajvansh/prisma-api-node.js): implementation of crud ops using prisma orm in node.js
-- [password hashing](https://github.com/abhijayrajvansh/password-hashing): implementation of hashing passwords before storing them into database, part of IAM security flow.
+- [password hashing](https://github.com/abhijayrajvansh/password-hashing): hashing passwords before storing them into database, part of IAM security flow.
 - [auth pages ui](https://github.com/abhijayrajvansh/auth-client-ui): clean react components for register and login page with validations.
 - [traditional auth](https://github.com/abhijayrajvansh/pern-auth-server): traditional way of jwt authentication from scrath using postgres, express, react and node.
+- [flare particles](https://flareparticles.vercel.app): flare effect with flying dust particles landing page.
