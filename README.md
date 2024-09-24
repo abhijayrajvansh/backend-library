@@ -5,6 +5,7 @@ Author: [Abhijay Rajvansh](https://abhijayrajvansh.com)
 ## Link To Repositories
 
 - [graphql server](https://github.com/abhijayrajvansh/graphql-server): implementation of graphql with express.js for node server.
+- [graphql apollo client](https://github.com/abhijayrajvansh/graphql-apollo-client): client side implementation of graphql with react and next.js.
 - [auth auth with postgresql server](https://github.com/abhijayrajvansh/google-auth): google oauth implementation with user and admin roles.
 - [spotify player](https://github.com/abhijayrajvansh/spotify-song-search): embed spotify mini card component in jsx/tsx apps.
 - [youtube transcript generator](https://github.com/abhijayrajvansh/youtube-transcript-api): convert youtube videos into LLM-ready markdown data.
